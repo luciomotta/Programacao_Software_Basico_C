@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h> //Lib para exit()
 #include <locale.h>
-// Declaração das funções de outros arquivos
-void funcaoBasica();
+#include "cabecalho.h"
+
+
+
+// Declaraï¿½ï¿½o das funï¿½ï¿½es de outros arquivos
+//void funcaoBasica();
 void calculaAreaCirculo();
 
 int main() {
@@ -10,30 +14,30 @@ int main() {
 	
     int escolha;
     
-    // Exibe o menu para o usuário
+    // Exibe o menu para o usuï¿½rio
     do {
-        printf("\nEscolha uma opção:\n");
-        printf("1 - Calcular área do círculo\n");
-        printf("2 - Calcular área do quadrado\n");
+        printf("\nEscolha uma opÃ§Ã£o:\n");
+        printf("1 - Calcular Ã¡rea do cÃ­rculo\n");
+        printf("2 - Calcular Ã¡rea do quadrado\n");
         printf("3 - Sair\n");
-        printf("Digite a opção: ");
+        printf("Digite a opÃ§Ã£o: ");
         scanf("%d", &escolha);
         
-        // Condicional para escolher qual função chamar
+        // Condicional para escolher qual funï¿½ï¿½o chamar
         switch (escolha) {
             case 1:
-                calculaAreaCirculo();  // Chama a função para calcular a área do círculo
+                calculaAreaCirculo();  // Chama a funï¿½ï¿½o para calcular a ï¿½rea do cï¿½rculo
                 break;
             case 2:
-                funcaoBasica(); // Chama a função para calcular a área do quadrado
+                //funcaoBasica(); // Chama a funï¿½ï¿½o para calcular a ï¿½rea do quadrado
                 break;
             case 3:
                 printf("Saindo do programa...\n");
                 exit(0); // Encerra o programa
             default:
-                printf("Opção inválida! Tente novamente.\n");
+                printf("OpÃ§Ã£oo invÃ¡lida! Tente novamente.\n");
         }
-    } while (true);  // O loop continua até o usuário escolher a opção 3 (sair)
+    } while (true);  // O loop continua atï¿½ o usuï¿½rio escolher a opï¿½ï¿½o 3 (sair)
 
-    return 0;  // Retorno do programa (não será alcançado devido ao exit)
+    return 0;  // Retorno do programa (nï¿½o serï¿½ alcanï¿½ado devido ao exit)
 }

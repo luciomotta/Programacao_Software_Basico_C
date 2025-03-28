@@ -1,27 +1,29 @@
-// Inclusão da LIB
-#include <stdio.h> //Lib Entrada e Saída 
+// Inclusï¿½o da LIB
+#include <stdio.h> //Lib Entrada e Saï¿½da 
+#include "cabecalho.h"
 
 //Definir constante 
 //#Define PI 3.14 // Definir a constante PI
 const float PI = 3.14;
 
-// Função que calcula a área do círculo
-int calculaAreaCirculo() {
-    // Declaração de variáveis
+// Funï¿½ï¿½o que calcula a ï¿½rea do cï¿½rculo
+void calculaAreaCirculo() {
+    // Declaraï¿½ï¿½o de variï¿½veis
     float area, raio;
     
-    // Impressão de uma mensagem de boas-vindas
-    printf("Ola, bem-vindo ao programa de cálculo de área do círculo!\n\n");
+    // Impressï¿½o de uma mensagem de boas-vindas
+    printf("Ola, bem-vindo ao programa de cÃ¡lculo de Ã¡rea do cï¿½rculo!\n\n");
     
     // Leitura do raio
     printf("Digite o valor do raio: ");
     scanf("%f", &raio);
     
-    // Cálculo da área do círculo
+    // Cï¿½lculo da ï¿½rea do cï¿½rculo
     area = PI * raio * raio;
     
-    // Exibição do resultado
-    printf("A área do círculo com raio %.2f é: %.2f\n", raio, area);
+    // Exibiï¿½ï¿½o do resultado
+    printf("A ï¿½rea do cï¿½rculo com raio %.2f ï¿½: %.2f\n", raio, area);
     
 
 }
+
