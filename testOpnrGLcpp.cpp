@@ -1,34 +1,59 @@
-#include <GL/glut.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <iostream>
 
-void init() {
-    glClearColor(0.0, 0.0, 0.0, 1.0); // Cor de fundo preta
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(0.0, 500.0, 0.0, 500.0); // Define a área de visualização
+// Callback para ajustar o tamanho do viewport quando a janela Ã© redimensionada
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height);
 }
 
-void display() {
-    glClear(GL_COLOR_BUFFER_BIT);
+int main() {
+    // Inicializa o GLFW
+    if (!glfwInit()) {
+        std::cerr << "Falha ao inicializar o GLFW" << std::endl;
+        return -1;
+    }
 
-    glColor3f(1.0, 0.0, 0.0); // Cor vermelha
-    glBegin(GL_QUADS);
-        glVertex2i(100, 100);
-        glVertex2i(400, 100);
-        glVertex2i(400, 400);
-        glVertex2i(100, 400);
-    glEnd();
+    // ConfiguraÃ§Ãµes da janela GLFW
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // OpenGL 3.x
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    glFlush();
-}
+    // Cria uma janela GLFW
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Teste OpenGL com GLFW e GLAD", nullptr, nullptr);
+    if (!window) {
+        std::cerr << "Falha ao criar a janela GLFW" << std::endl;
+        glfwTerminate();
+        return -1;
+    }
 
-int main(int argc, char** argv) {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(500, 500);
-    glutCreateWindow("Retângulo com OpenGL");
-    init();
-    glutDisplayFunc(display);
-    glutMainLoop();
+    // Define o contexto OpenGL para a janela atual
+    glfwMakeContextCurrent(window);
+
+    // Carrega as funÃ§Ãµes OpenGL usando GLAD
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cerr << "Falha ao inicializar o GLAD" << std::endl;
+        return -1;
+    }
+
+    // Define o callback para redimensionamento da janela
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+    // Define a cor de fundo
+    glClearColor(0.0f, 0.0f, 1.0f, 1.0f); // Azul
+
+    // Loop principal
+    while (!glfwWindowShouldClose(window)) {
+        // Limpa o buffer de cor
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        // Troca os buffers e processa eventos
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    // Finaliza o GLFW
+    glfwDestroyWindow(window);
+    glfwTerminate();
     return 0;
 }
-

@@ -5,4 +5,5 @@ int funcaoBasica(){
         printf("Digite um valor inteiro e ENTER\n"); // mostra na tela 
         scanf("%d", &j); // ler j, NAO digitar NADA entre %d e " 
         printf("Valor e' %d\n", j); // mostra na tela valor de j lido 
-        }  // fim main
+        return 0;
+        }   // fim main
