@@ -13,7 +13,7 @@ int main() {
         return -1;
     }
 
-    // Configurações do GLFW
+    // Configuraï¿½ï¿½es do GLFW
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -33,10 +33,10 @@ int main() {
         return -1;
     }
 
-    // Define a função de callback para redimensionamento
+    // Define a funï¿½ï¿½o de callback para redimensionamento
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    // Loop de renderização
+    // Loop de renderizaï¿½ï¿½o
     while (!glfwWindowShouldClose(window)) {
         // Limpa a tela
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
